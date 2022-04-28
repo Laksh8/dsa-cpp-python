@@ -10,17 +10,18 @@ int main(){
     cin>>n;
     int x;
     bool flag = true;
-    int temp = INT_MIN;
+    int temp = 0;
     for(int i=0;i<n;i++){
         cin>>x;
-        if(temp==x){
+        if(i==0 or flag){
+            temp = x;
+            flag=false;
+            continue;
+        }
+        if(x == temp){
             flag=true;
         }
-        if(flag and !temp==x){
-            temp=x;
-            flag=false;
-        }
-        cout<<temp;
     }
+    cout<<temp;
     return 0;
 }

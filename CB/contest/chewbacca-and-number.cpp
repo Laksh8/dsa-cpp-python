@@ -11,8 +11,12 @@ int main(){
         count++;
         n/=10;
     }
-
     for(int i=count-1;i>-1;i-- ){
+        if(i==count-1 and arr[i]==9){
+            cout<<arr[i];
+            continue;
+        }
+
         if(arr[i]>=9-arr[i]){
             cout<<9-arr[i];
         }else{

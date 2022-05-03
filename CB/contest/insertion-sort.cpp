@@ -13,21 +13,19 @@ int main(){
     }
 
     // Sorting Starts
-    int min_index = 0;
     for(int i=0;i<n;i++){
         int temp = arr[i];
-        int j = i;
-        while(temp>arr[j-1] and j>0){
-            arr[j-1] = arr[j];
+        int j = i-1;
+        while(j>=0 and temp<arr[j]){
+            arr[j+1] = arr[j];
             j--;
         }
-
-        temp = arr[j+1];
+        arr[j+1]=temp;
     }
     //Sorting ends 
 
     for(int i=0;i<n;i++){
-        cout<<arr[i]<<endl;
+        cout<<arr[i]<<" ";
     }
 
 

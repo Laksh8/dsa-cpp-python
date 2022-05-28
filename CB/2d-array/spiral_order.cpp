@@ -14,7 +14,10 @@ int main(){
     int m = 4;
 
     int sr = 0;
+    int sc = 0;
     int ec = m-1;
+    int er = n-1;
+
 
     return 0;
 }

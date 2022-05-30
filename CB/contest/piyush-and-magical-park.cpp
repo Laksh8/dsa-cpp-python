@@ -13,28 +13,27 @@ int main(){
     }
     
 
-
-
-    for(int i=0;i<n;i++){   
+    for(int i=0;i<n;i++){
+		
         for(int j=0;j<m;j++){
-            if(str[i][j] == '.'){
-                s-=3;
+			if(s<k){
+				cout<<"No"<<endl;
+				return 0;
+			}
+		    if(str[i][j] == '.'){
+				s-=3;
             }else if(str[i][j] == '*'){
                 s+=4;
-            }else{
-                if(j==m-1)
-                    s++;
-                else 
-                    s--;
+            }else{                 
+                
                 break;
-
             }
-            if(j==m-1)
-                s++;
+			if(j==m-1)
+            	s++;
         }
         
     }
-    if(s>k){
+    if(s>=k){
         cout<<"Yes"<<endl<<s;
     }else{
         cout<<"No"<<endl;

@@ -12,6 +12,7 @@ int multiply(int a,int b){
 
 
 int main(){
-    cout<<multiply(4,-3);
+    
+    cout<<multiply(-4,3);
     return 0;
 }

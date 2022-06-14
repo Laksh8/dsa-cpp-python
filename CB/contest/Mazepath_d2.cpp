@@ -25,7 +25,7 @@ void mazePath(string &s,int i,int j,int  n1,int n2,int &count){
     }
 
     // Move Diagonal
-    if(i<n1 and j<n2){
+    if(i<n1 and j<n2 and i==j){
         s.push_back('D');
         mazePath(s,i+1,j+1,n1,n2,count);
         s.pop_back();
@@ -35,11 +35,11 @@ void mazePath(string &s,int i,int j,int  n1,int n2,int &count){
 
 
 int main(){
-    int n1,n2;
-    cin>>n1>>n2;
+    int n;
+    cin>>n;
     string s="";
     int count = 0;
-    mazePath(s,0,0,n1-1,n2-1,count);
+    mazePath(s,0,0,n-1,n-1,count);
     cout<<endl<<count;
     return 0;
 }

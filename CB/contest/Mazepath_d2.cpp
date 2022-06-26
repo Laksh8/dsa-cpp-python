@@ -11,21 +11,22 @@ void mazePath(string &s,int i,int j,int  n1,int n2,int &count){
 
     // recursive case
     // Move Vertical
-    if(j<n2){
+    if(i<n1){
         s.push_back('V');
+        mazePath(s,i+1,j,n1,n2,count);
+        s.pop_back();
+    }
+    // Move Horizontal 
+    if(j<n2){
+        s.push_back('H');
         mazePath(s,i,j+1,n1,n2,count);
         s.pop_back();
     }
 
-    // Move Horizontal 
-    if(i<n1){
-        s.push_back('H');
-        mazePath(s,i+1,j,n1,n2,count);
-        s.pop_back();
-    }
+    
 
     // Move Diagonal
-    if(i<n1 and j<n2 and i==j){
+    if(i==j or i+j == n1){
         s.push_back('D');
         mazePath(s,i+1,j+1,n1,n2,count);
         s.pop_back();

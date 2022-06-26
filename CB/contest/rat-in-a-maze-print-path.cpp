@@ -1,7 +1,5 @@
 #include<iostream>
 using namespace std;
-
-
 void print_first_path(string maze[],int out[][1000],int i,int j,int m,int n,bool &flag){
     // base case
     if( flag ){
@@ -15,7 +13,7 @@ void print_first_path(string maze[],int out[][1000],int i,int j,int m,int n,bool
             }
             cout<<endl;
         }
-        cout<<endl;
+        // cout<<endl;
         out[i][j] = 0;
         flag = true;
         return;
@@ -34,18 +32,14 @@ void print_first_path(string maze[],int out[][1000],int i,int j,int m,int n,bool
     out[i][j]=0;
     return;
 }
-
-
 int main(){
     int m=5,n=4;
+    cin>>m>>n;
     bool flag = false;
-    string maze[] ={
-        "0X00",
-        "000X",
-        "00X0",
-        "X000",
-        "XX00"
-    };
+    string maze[1000];
+    for(int i=0;i<m;i++){
+        cin>>maze[i];
+    }
     int out[1000][1000];
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){

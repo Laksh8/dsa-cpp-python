@@ -35,24 +35,40 @@ void print_ll(node *head){
     }
 }
 
-void insertion_sort_ll(node *&head ,int n){
-    // if their is no or 1 element in the list
-    if(!head or !head->next){
-        return;
-    }
+
+void sort_ll(node *&head){
+    int count_0 = 0;
+    int count_1 = 0;
+    int count_2 = 0;
     node *tail = head;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<=i;j++){
-            if(tail->value < head->value){
-                head->next = tail->next;
-                tail->next = head;
-                head = tail;
-            }
+    while(tail){
+        if(tail->value==0){
+            count_0++;
+        }else if(tail->value==1){
+            count_1++;
+        }
+        else{
+            count_2++;
         }
         tail = tail->next;
     }
+    tail = head;
+    while(count_0--){
+        tail->value = 0;
+        tail = tail->next;
+    }
+    while(count_1--){
+        tail->value = 1;
+        tail = tail->next;
+    }
+    while(count_2--){
+        tail->value = 2;
+        tail = tail->next;
+    }
+
 
 }
+
 
 
 int main(){
@@ -64,9 +80,9 @@ int main(){
         int x;
         cin>>x;
         insert_at_tail(head,x);
-        cout<<endl;
     }
-    insertion_sort_ll(head,n);
+    
+    sort_ll(head);
     print_ll(head);
     return 0;
 }

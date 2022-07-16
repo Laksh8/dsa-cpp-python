@@ -28,30 +28,22 @@ void insert_at_tail(node *&head,int value){
 }
 
 
-void print_ll(node *head){
+void print_ll(node *head ,node *odd,node *even){
+    cout<<"Original List: ";
     while(head){
         cout<<head->value<<" ";
         head = head->next;
     }
-}
-
-void insertion_sort_ll(node *&head ,int n){
-    // if their is no or 1 element in the list
-    if(!head or !head->next){
-        return;
+    cout<<endl<<"Modified List: " ;
+    while(odd){
+        cout<<odd->value<<" ";
+        odd = odd->next;
     }
-    node *tail = head;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<=i;j++){
-            if(tail->value < head->value){
-                head->next = tail->next;
-                tail->next = head;
-                head = tail;
-            }
-        }
-        tail = tail->next;
+    while(even){
+        cout<<even->value<<" ";
+        even = even->next;
     }
-
+    cout<<endl;
 }
 
 
@@ -59,14 +51,21 @@ int main(){
     int n;
     cin>>n;
     node *head = NULL;
-    // cout<<n;
+    node *odd = NULL;
+    node* even = NULL;    
     for(int i=0;i<n;i++){
         int x;
         cin>>x;
-        insert_at_tail(head,x);
-        cout<<endl;
+        if(x %2==0){
+            insert_at_tail(head,x);
+            insert_at_tail(even,x);
+        }
+        else{
+            insert_at_tail(head,x);
+            insert_at_tail(odd,x);
+        }
+        
     }
-    insertion_sort_ll(head,n);
-    print_ll(head);
+    print_ll(head,odd,even);
     return 0;
 }

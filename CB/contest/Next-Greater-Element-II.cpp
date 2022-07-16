@@ -3,15 +3,20 @@ using namespace std;
 
 // Function to print Next Greater Element for each element of the array
 void nextGreater(int arr[], int n) { 
-    stack<int> s;
+    stack<int> s_right;
+    stack<int> s_left;
     int *brr = new int[n];
     for(int i=n-1;i>=0;i--){
-        while( !s.empty() and s.top() < arr[i]){
-            s.pop();
+        while( !s_right.empty() and s_right.top() < arr[i]){
+            s_right.pop();
         }
-        brr[i] = (s.empty() ? -1 : s.top() );
+        while( !s_left.empty() and s_left.top() < arr[i]){
+            s_left.pop();
+        }
         
-        s.push(arr[i]);
+        brr[i] = (s_right.empty() ? -1 : s_right.top() );
+        
+        s_right.push(arr[i]);
     }
 
     for(int i=0;i<n;i++){
@@ -21,8 +26,7 @@ void nextGreater(int arr[], int n) {
 } 
 
 // The Main Function
-int main() 
-{ 
+int main() {
     int t;
     cin>>t;
     while(t--){

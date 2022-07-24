@@ -49,11 +49,13 @@ void printList(struct node *node)
 class Solution
 {
     public:
-    
+
+
+
     struct node *reverse (struct node *head, int k)
     {
-        
         // Complete this method
+
     }
 };
 

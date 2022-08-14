@@ -19,6 +19,7 @@ void findDuplicate(vector<int>v){
 }
 
 
+
 void findnewDuplicate(vector<int>v){
     int n = v.size();
     for(int i=0;i<n;i++){

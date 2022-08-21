@@ -6,15 +6,15 @@ using namespace std;
 class Solution{
   public:
     vector<int> duplicates(int arr[], int n) {
-        unordered_set<int> s;
+        unordered_map<int,int> s;
         vector<int> v;
         for(int i=0;i<n;i++){
-            if(s.find(arr[i])!= s.end()){
+            if(s.find(arr[i]) != s.end() and s[arr[i]]  == 1){
                 v.push_back(arr[i]);
             }
-            s.insert(arr[i]);
+            s[arr[i]] += 1;
         }
-
+        sort(v.begin(),v.end());
         return v.empty() ? v ={-1} : v;
     }
 };

@@ -37,7 +37,7 @@ int LCS(string s1,string s2,int n,int m){
                 dp[i][j] = max( 
                     dp[i+1][j],
                     dp[i][j+1]
-                )
+                );
             }
         }
     }

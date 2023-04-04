@@ -1,17 +1,24 @@
-nums = [5,4,-1,7,8]
+lst = [0,1,0,1,1,1,1,0]
+count_0 = 0
+count_1 = 0
+for i in lst:
+    if i == 0:
+        count_0 +=1
+    else:
+        count_1 += 1
 
-su = nums[0]
+lst = []
+while(count_0 != 0):
+    lst.append(0)
 
-max_su = su
+    count_0 -=1
 
-for i in nums[1:]:
-    su = max(su+i,i)
-    max_su = max(max_su,su)
+while(count_1 != 0):
+    lst.append(1)
 
-print(max_su)
+    count_1 -=1
 
-
-
+print(lst)
 
 
 
